@@ -7,6 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 @NgModule({
   declarations: [
     AppComponent,
@@ -18,7 +19,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule 
+    ReactiveFormsModule,
+    RouterModule.forRoot([
+      {path: 'reactive-form', component: ReactiveFormComponent},
+      {path: 'template-form', component: TemplateFormComponent},
+    ]), 
     
   ],
   providers: [],
