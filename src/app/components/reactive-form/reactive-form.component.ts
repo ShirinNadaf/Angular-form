@@ -1,27 +1,24 @@
 import { Component, OnInit } from '@angular/core';
-import { FormControl, FormGroup } from '@angular/forms';
+import { FormControl, FormGroup,FormBuilder } from '@angular/forms';
 @Component({
   selector: 'app-reactive-form',
   templateUrl: './reactive-form.component.html',
   styleUrls: ['./reactive-form.component.css']
 })
 export class ReactiveFormComponent implements OnInit {
-  
-  form = new FormGroup({
-    fullName : new FormControl(''),
-    email : new FormControl(''),
-    userName : new FormControl(''),
-    password : new FormControl(''),
-    conformPassword : new FormControl('')
+  constructor(private fb: FormBuilder) { }
+  form =this.fb.group({
+    fullName : [''],
+    email : [''],
+    userName : [''],
+    password : [''],
+    confirmPassword : ['']
 
 });
-
-constructor() { }
-
 ngOnInit(): void {
 }
 onSubmit(){
-console.log(this.form.value)
+console.log("reactive form",this.form.value)
 }
  
 

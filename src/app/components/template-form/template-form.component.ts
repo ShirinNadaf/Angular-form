@@ -8,6 +8,6 @@ import { Component, OnInit } from '@angular/core';
 export class TemplateFormComponent  {
   userModel:any = {}
   onSubmit(){
-    console.log(this.userModel)
+    console.log("Template Form",this.userModel)
   }
 }
