@@ -1,0 +1,13 @@
+.container{
+    max-width: 1140px;
+    margin: 0 auto;
+}
+.btn-warning{
+    margin-left: 460px;
+}
+.checkboxrow{
+    margin-left: 20px;
+}
+.card-body{
+    background-color: white;
+}
