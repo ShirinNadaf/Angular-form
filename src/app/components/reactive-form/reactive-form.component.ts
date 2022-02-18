@@ -20,6 +20,5 @@ ngOnInit(): void {
 onSubmit(){
 console.log("reactive form",this.form.value)
 }
- 
 
 }
