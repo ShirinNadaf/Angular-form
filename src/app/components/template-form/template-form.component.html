@@ -1,1 +1,71 @@
-<p>template-form works!</p>
+<div class="container">
+    <div class="row">
+      <div class="col-12">
+        <div class="jumbotron">
+          <h2>Teamplate Form</h2>
+          <form name="form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label for="firstName">First Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="firstName"
+                [(ngModel)]="userModel.firstName"
+              />
+              <div class="invalid-feedback">
+                <div>First Name is required</div>
+              </div>
+            </div>
+            
+            <div class="form-group">
+              <label for="lastName">Last Name</label>
+              <input
+                type="text"
+                class="form-control"
+                name="lastName"
+                [(ngModel)]="userModel.lastName"
+              />
+              <div class="invalid-feedback">
+                <div>Last Name is required</div>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input
+                type="text"
+                class="form-control"
+                name="email"
+                [(ngModel)]="userModel.email"
+              />
+              <div class="invalid-feedback">
+                <div>Email Name is required</div>
+                <div>Email must be a valid email Address</div>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                name="password"
+                [(ngModel)]="userModel.password"
+              />
+  
+              <div class="invalid-feedback">
+                <div>Password Name is required</div>
+                <div>Password must be at least 6 characters</div>
+              </div>
+            </div>
+  
+            <div class="form-group">
+              <button class="btn btn-primary">Register</button>
+            </div>
+  
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  

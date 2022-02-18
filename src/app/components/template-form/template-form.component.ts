@@ -5,11 +5,9 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './template-form.component.html',
   styleUrls: ['./template-form.component.css']
 })
-export class TemplateFormComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
+export class TemplateFormComponent  {
+  userModel:any = {}
+  onSubmit(){
+    console.log("Template Form",this.userModel)
   }
-
 }

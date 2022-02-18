@@ -1,0 +1,28 @@
+.container{
+    max-width: 1110px;
+    margin: 0 auto;  
+}
+h2{
+   padding-top: 20px;
+   text-align: center;
+}
+.jumbotron{
+    width: 700px;
+    margin: auto; 
+}
+.btn-warning{
+    margin-left: 460px;
+}
+.checkboxrow{
+    margin-left: 20px;
+}
+.card-body{
+    background-color: rgb(236, 234, 230);
+}
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+    border: 2px ;
+  }
