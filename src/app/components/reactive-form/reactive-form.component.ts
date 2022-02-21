@@ -13,13 +13,12 @@ export class ReactiveFormComponent implements OnInit {
     userName : [''],
     password : [''],
     confirmPassword : ['']
-
 });
+
 ngOnInit(): void {
 }
 onSubmit(){
 console.log("reactive form",this.form.value)
 }
- 
 
 }

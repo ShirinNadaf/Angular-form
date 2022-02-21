@@ -1,7 +1,7 @@
- <!-- <app-reactive-form></app-reactive-form>  
- <app-template-form></app-template-form> -->
- <nav>
-    <a class="button" routerLink="/reactive-form" routerLinkActive="activebutton">Reactive-Form</a> |
-    <a class="button" routerLink="/template-form" routerLinkActive="activebutton">Temaplte-Form</a>
+<nav>
+    <ul class="nav nav-pills">
+        <li class="nav-item"><a class="nav-link" routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}">Reactive-form</a></li>
+        <li class="nav-item"><a class="nav-link" routerLink="/template-form" routerLinkActive="active">Teamplate-form</a></li>
+      </ul>
 </nav>
 <router-outlet></router-outlet>

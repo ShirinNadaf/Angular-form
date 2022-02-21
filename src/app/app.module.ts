@@ -21,7 +21,7 @@ import { RouterModule } from '@angular/router';
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot([
-      {path: 'reactive-form', component: ReactiveFormComponent},
+      {path: '', component: ReactiveFormComponent},
       {path: 'template-form', component: TemplateFormComponent},
     ]), 
     
