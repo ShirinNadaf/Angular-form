@@ -1,56 +1,142 @@
 <div class="container">
-    <div class="row">
-        <div class="col-md-8 mx-auto">
-            <div class="card">
-                <div class="card-header">
-                    <h3>Reactive Form</h3>
-                </div>
-                <div class="card-body">
-                    <form class="form" [formGroup]="form" (ngSubmit)="onSubmit()">
-                        <div class="form-group">
-                            <label for="fullName">FullName</label>
-                            <input type="text" class="form-control" formControlName="fullName">                    
-                        </div>
-
-                        <div class="form-group">
-                            <label for="email">Email</label>
-                            <input type="email" class="form-control" formControlName="email">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="userName">User Name</label>
-                            <input type="text" class="form-control" formControlName="userName">
-                        </div>
-
-                        <div class="form-group">
-                            <label for="password">Password</label>
-                            <input type="password" class="form-control" formControlName="password">
-                        </div>
-
-                        <div class="form-group ">
-                            <label for=" confirmPassword">Confirm Password</label>
-                            <input type="password " class="form-control" formControlName=" confirmPassword">
-                        </div>
-
-                        <div class="form-group">
-                            <div class="checkboxrow">
-                                <input type="checkbox" class="form-check-input" id="tnc">
-                                <label for="tnc" class="form-check-label">Agree with terms and conditions</label>
-                                <div class="invalid-feedback">
-                                    <div>Please agree with terms and conditions</div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class=" form-group ">
-                            <button type="submit " class="btn btn-primary">Register</button>         
-                            <button type="reset" class="btn btn-warning">Reset</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="card">
+        <div class="card-header">
+          <h3>Reactive Form</h3>
         </div>
+        <div class="card-body">
+          <form [formGroup]="form" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+              <label>Full Name</label>
+              <input
+                type="text"
+                formControlName="FullName"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && fval.FullName.errors }"
+              />
+              <div
+                *ngIf="submitted && fval.FullName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="fval.FullName.errors.required">
+                  Full Name is required and must be a valid name
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Username</label>
+              <input
+                type="text"
+                formControlName="UserName"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && fval.UserName.errors }"
+              />
+              <div
+                *ngIf="submitted && fval.UserName.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="fval.UserName.errors.required">
+                  UserName must be minlength of 6 & maxlength of 20 characters
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="Email"
+                class="form-control"
+                [ngClass]="{ 'is-invalid': submitted && fval.Email.errors }"
+              />
+              <div
+                *ngIf="submitted && fval.Email.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="fval.Email.errors.required">
+                  Email is required and must be valid
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="Password"
+                [ngClass]="{ 'is-invalid': submitted && fval.Password.errors }"
+              />
+              <div
+                *ngIf="submitted && fval.Password.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="fval.Password.errors.required">
+                  Password should consists minlength of 6 & maxlength of 40
+                  characters
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label>Confirm Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="ConfirmPassword"
+                [ngClass]="{
+                  'is-invalid': submitted && fval.ConfirmPassword.errors
+                }"
+              />
+              <div
+                *ngIf="submitted && fval.ConfirmPassword.errors"
+                class="invalid-feedback"
+              >
+                <div *ngIf="fval.ConfirmPassword.errors.required">
+                  Confirm Password does not match
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-check">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="invalidCheck"
+                  formControlName="checkbox"
+                  [ngClass]="{
+                    'is-invalid': submitted && fval.checkbox.errors
+                  }"
+                />
+                <label class="form-check-label" for="invalidCheck"
+                  >I have read and agree to the terms</label
+                >
+
+                <div
+                  *ngIf="submitted && fval.checkbox.errors"
+                  class="invalid-feedback"
+                >
+                  <div *ngIf="fval.checkbox.errors.required">
+                    This is required field
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <button type="submit" [disabled]="form.invalid" class="btn btn-success">Register</button>
+              <button type="button" (click)="onReset()" class="btn btn-warning">
+                Reset
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
     </div>
-</div> 
-
-
+  </div>
+</div>

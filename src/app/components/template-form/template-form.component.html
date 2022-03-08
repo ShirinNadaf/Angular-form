@@ -1,71 +1,120 @@
 <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="jumbotron">
-          <h2>Template Form</h2>
-          <form name="form" #userForm="ngForm" (ngSubmit)="onSubmit()">
-            <div class="form-group">
-              <label for="firstName">First Name</label>
-              <input
-                type="text"
-                class="form-control"
-                name="firstName"
-                [(ngModel)]="userModel.firstName"
-              />
-              <div class="invalid-feedback">
-                <div>First Name is required</div>
+  <div class="row">
+    <div class="col-12">
+      <div class="jumbotron">
+        <h2>Teamplate Form</h2>
+        <form name="form" #userForm="ngForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label for="firstName" class="lbl">First Name</label>
+            <input
+              required
+              minlength="3"
+              maxlength="10"
+              [(ngModel)]="userDetails.firstName"
+              name="firstName"
+              type="text"
+              #firstName="ngModel"
+              class="form-control lbl"
+              id="firstName"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="firstName.touched && !firstName.valid"
+            >
+              <div *ngIf="firstName.errors && firstName.errors['required']">
+                First Name is required.
+              </div>
+              <div *ngIf="firstName.errors && firstName.errors['minlength']">
+                minimum 3 character required .
+              </div>
+              <div *ngIf="firstName.errors && firstName.errors['maxlength']">
+                maximum 10 character.
               </div>
             </div>
-            
-            <div class="form-group">
-              <label for="lastName">Last Name</label>
-              <input
-                type="text"
-                class="form-control"
-                name="lastName"
-                [(ngModel)]="userModel.lastName"
-              />
-              <div class="invalid-feedback">
-                <div>Last Name is required</div>
+          </div>
+
+          <div class="form-group">
+            <label for="lastName" class="lbl">Last Name</label>
+            <input
+              required
+              minlength="4"
+              maxlength="15"
+              [(ngModel)]="userDetails.lastName"
+              name="lastName"
+              type="text"
+              #lastName="ngModel"
+              class="form-control lbl"
+              id="lastName"
+            />
+            <div
+              class="alert alert-danger"
+              *ngIf="lastName.touched && !lastName.valid"
+            >
+              <div *ngIf="lastName.errors && lastName.errors['required']">
+                Last Name is required.
+              </div>
+              <div *ngIf="lastName.errors && lastName.errors['minlength']">
+                minimum 4 character required .
+              </div>
+              <div *ngIf="lastName.errors && lastName.errors['maxlength']">
+                F maximum 15 character.
               </div>
             </div>
-  
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input
-                type="text"
-                class="form-control"
-                name="email"
-                [(ngModel)]="userModel.email"
-              />
-              <div class="invalid-feedback">
-                <div>Email Name is required</div>
-                <div>Email must be a valid email Address</div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <label for="password">Password</label>
-              <input
-                type="password"
-                class="form-control"
-                name="password"
-                [(ngModel)]="userModel.password"
-              />
-  
-              <div class="invalid-feedback">
-                <div>Password Name is required</div>
-                <div>Password must be at least 6 characters</div>
-              </div>
-            </div>
-  
-            <div class="form-group">
-              <button class="btn btn-primary">Register</button>
-            </div>
-  
-          </form>
-        </div>
+          </div>
+          <div class="form-group">  
+            <label 
+                   for="userEmailId">User Email</label>  
+            <div >  
+              <input class="form-control"  
+                     id="userEmaild"  
+                     type="text"  
+                     appEmailvalidator  
+                     required  
+                     [(ngModel)]="userDetails.userEmail"  
+                     name="userEmail"  
+                     #userEmailVar="ngModel"  
+                     [ngClass]="{'is-invalid': (userEmailVar.touched || userEmailVar.dirty) && !userEmailVar.valid }" />  
+              <span class="invalid-feedback">  
+                <span *ngIf="userEmailVar.hasError('required')">  
+                  User email is required.  
+                </span>  
+                <span *ngIf="userEmailVar.hasError('emailvalidator')">  
+                  Please provide a valid email address  
+                </span>  
+              </span>  
+            </div>  
+          </div>
+        <div class="form-group">  
+          <label 
+                 for="userEmailId">User password</label>  
+          <div >  
+            <input class="form-control"  
+                   id="userEmaild"  
+                   type="password"  
+                   appPasswordPattern  
+                   required  
+                   invalidPassword
+                   [(ngModel)]="userDetails.password"  
+                   name="password"  
+                   #passwordVar="ngModel"  
+                   [ngClass]="{'is-invalid': (passwordVar.touched || passwordVar.dirty) && !passwordVar.valid }" />  
+              <span class="invalid-feedback">  
+              <span *ngIf="passwordVar.hasError('required')">  
+                  password is required.  
+              </span>  
+              <span *ngIf="passwordVar.hasError('passwordValidate')">  
+                Please provide a valid password
+              </span>  
+            </span>  
+          </div>  
+        </div> 
+
+
+          <div class="form-group">
+            <button [disabled]="userForm.invalid" class="btn btn-primary">Register</button>
+          </div>
+        </form>
       </div>
     </div>
   </div>
-  
+</div>

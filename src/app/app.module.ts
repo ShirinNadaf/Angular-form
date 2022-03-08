@@ -8,11 +8,15 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { TemplateFormComponent } from './components/template-form/template-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { RouterModule } from '@angular/router';
+import { EmailvalidatorDirective } from './Directive/Email/emailvalidator.directive';
+import { PasswordPatternDirective } from './Directive/password/passwordvalidator.directive';
 @NgModule({
   declarations: [
     AppComponent,
     ReactiveFormComponent,
-    TemplateFormComponent
+    TemplateFormComponent,
+    EmailvalidatorDirective,
+    PasswordPatternDirective
   ],
   imports: [
     BrowserModule,
